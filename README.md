@@ -8,6 +8,8 @@
 
 ## Results: 3 Configs × 8 Tasks × Claude Code
 
+![Leaderboard](docs/assets/leaderboard.png)
+
 | Config | Pass Rate | Avg Tokens | Avg Time | Avg Cost | Score |
 |--------|-----------|------------|----------|----------|-------|
 | **token-efficient** | **88%** | 208k | **73.7s** | **$0.28** | **44** |
