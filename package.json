@@ -35,7 +35,15 @@
     "ai-coding",
     "developer-tools"
   ],
-  "author": "",
+  "author": "SingggggYee",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/SingggggYee/agent-config-arena.git"
+  },
+  "homepage": "https://github.com/SingggggYee/agent-config-arena",
+  "bugs": {
+    "url": "https://github.com/SingggggYee/agent-config-arena/issues"
+  },
   "license": "MIT",
   "engines": {
     "node": ">=20.0.0"
