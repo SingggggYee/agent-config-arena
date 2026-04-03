@@ -2,12 +2,27 @@
 
 > Everyone shares their CLAUDE.md. Nobody benchmarks them. Until now.
 
-<!-- TODO: Replace with actual screenshot after first benchmark run -->
-<!-- ![Leaderboard Screenshot](docs/assets/hero.png) -->
-
 [![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 [![Node.js](https://img.shields.io/badge/node-%3E%3D20-brightgreen.svg)](https://nodejs.org)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](CONTRIBUTING.md)
+
+## Results: 3 Configs × 8 Tasks × Claude Code
+
+| Config | Pass Rate | Avg Tokens | Avg Time | Avg Cost | Score |
+|--------|-----------|------------|----------|----------|-------|
+| **token-efficient** | **88%** | 208k | **73.7s** | **$0.28** | **44** |
+| workflow-heavy | 86% | 205k | 90.0s | $0.31 | 40 |
+| baseline (no config) | 88% | 201k | 112.9s | $0.33 | 36 |
+
+> Tested on 8 real coding tasks (REST API, refactoring, bug fix, CLI tool, data pipeline, test coverage, TS migration, performance optimization). Full results in [LEADERBOARD.md](LEADERBOARD.md).
+
+### Surprising findings
+
+- **"Token-efficient" config is fastest and cheapest, but doesn't actually use fewer tokens.** It wins on speed (35% faster than baseline) and cost, not token count.
+- **Zero config (baseline) uses the fewest tokens.** Adding instructions makes the model *more* verbose, not less.
+- **"Workflow-heavy" (plan-first, TDD) has the lowest pass rate.** More structure doesn't mean more correct.
+- **All 3 configs failed the data pipeline task.** The hardest tasks expose config limitations equally.
+- **The biggest gap is speed, not accuracy.** Pass rates are within 2%, but time ranges from 73s to 113s.
 
 ---
 
@@ -15,40 +30,30 @@
 
 A neutral, open-source benchmark that tests different coding agent configurations on the **same real coding tasks** -- then publishes the results.
 
-Your `CLAUDE.md` vs. mine. Your `AGENTS.md` vs. theirs. Same tasks, same metrics, transparent methodology.
-
 **Not a model benchmark.** SWE-bench tests models. We test *configs*.
 **Not a tool collection.** awesome-claude-code collects tools. We *evaluate* them.
 **Not a single config.** claude-token-efficient ships one config. We pit configs *against each other*.
 
-## Why this exists
-
-The Claude Code / Codex ecosystem has exploded with configuration files, system prompts, and workflow optimizations. Everyone claims "63% token savings" or "10x productivity."
-
-Nobody tests these claims against each other, on the same tasks, with the same metrics.
-
-This project does.
-
 ## Quick Start
 
 ```bash
-# List available tasks and configs
-npx agent-config-arena list-tasks
-npx agent-config-arena list-configs
-
-# Benchmark a single config
-npx agent-config-arena run --config configs/official/baseline.md --runner claude
-
-# Compare all official configs
+# Compare all official configs on all tasks
 npx agent-config-arena compare --configs configs/official --runner claude
+
+# Or benchmark your own config
+npx agent-config-arena run --config your-config.md --runner claude
 
 # Generate leaderboard
 npx agent-config-arena leaderboard
 ```
 
-## Current Leaderboard
+## Add Your Own Config
 
-> Run `npx agent-config-arena compare --configs configs/official --runner claude` to generate your own results.
+1. Create `configs/community/your-config.md`
+2. Run: `npx agent-config-arena run --config configs/community/your-config.md`
+3. Submit a PR with your config + results
+
+Can your CLAUDE.md beat the leaderboard? [Find out.](CONTRIBUTING.md)
 
 See [LEADERBOARD.md](LEADERBOARD.md) for full results.
 

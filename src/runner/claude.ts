@@ -15,10 +15,16 @@ export class ClaudeRunner implements Runner {
     try {
       const result = await execa(
         "claude",
-        ["--print", "--output-format", "json", "-p", prompt],
+        [
+          "-p",
+          prompt,
+          "--output-format",
+          "json",
+          "--dangerously-skip-permissions",
+        ],
         {
           cwd: sandboxPath,
-          timeout: 300_000,
+          timeout: 600_000,
           reject: false,
         },
       );
@@ -47,8 +53,11 @@ export class ClaudeRunner implements Runner {
   private parseTokens(stdout: string): TokenUsage {
     try {
       const data = JSON.parse(stdout);
-      const usage = data.usage || data.result?.usage || {};
-      const input = usage.input_tokens || 0;
+      const usage = data.usage || {};
+      const input =
+        (usage.input_tokens || 0) +
+        (usage.cache_read_input_tokens || 0) +
+        (usage.cache_creation_input_tokens || 0);
       const output = usage.output_tokens || 0;
       return { input, output, total: input + output };
     } catch {

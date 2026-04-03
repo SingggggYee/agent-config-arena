@@ -1,5 +1,5 @@
 import { execa } from "execa";
-import { readFile, cp } from "node:fs/promises";
+import { cp } from "node:fs/promises";
 import { join } from "node:path";
 import type { RawResult } from "../runner/types.js";
 import type { RunResult } from "../scoring/types.js";
@@ -27,6 +27,18 @@ export async function runTestVerification(
   }
 }
 
+function extractCostFromOutput(stdout: string): number | null {
+  try {
+    const data = JSON.parse(stdout);
+    if (typeof data.total_cost_usd === "number") {
+      return data.total_cost_usd;
+    }
+  } catch {
+    // not JSON
+  }
+  return null;
+}
+
 export function collectResult(
   configId: string,
   taskId: string,
@@ -35,6 +47,10 @@ export function collectResult(
   rawResult: RawResult,
   passed: boolean,
 ): RunResult {
+  const reportedCost = extractCostFromOutput(rawResult.stdout);
+  const cost =
+    reportedCost ?? calculateCost(runnerName, rawResult.tokens.input, rawResult.tokens.output);
+
   return {
     configId,
     taskId,
@@ -46,11 +62,7 @@ export function collectResult(
     tokensOutput: rawResult.tokens.output,
     tokensTotal: rawResult.tokens.total,
     wallClockMs: rawResult.durationMs,
-    costUsd: calculateCost(
-      runnerName,
-      rawResult.tokens.input,
-      rawResult.tokens.output,
-    ),
+    costUsd: cost,
     exitCode: rawResult.exitCode,
     error: rawResult.exitCode !== 0 ? rawResult.stderr.slice(0, 500) : undefined,
   };
