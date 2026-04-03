@@ -1,0 +1,10 @@
+{
+  "name": "test",
+  "data": {
+    "users": [
+      { "name": "Alice", "age": 30 },
+      { "name": "Bob", "age": 25 }
+    ],
+    "count": 2
+  }
+}

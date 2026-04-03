@@ -1,0 +1,10 @@
+{
+  "id": "06-test-coverage",
+  "name": "Add Test Coverage",
+  "difficulty": "medium",
+  "category": "testing",
+  "language": "typescript",
+  "timeoutSeconds": 180,
+  "expectedTokenRange": [8000, 35000],
+  "tags": ["testing", "coverage", "vitest"]
+}

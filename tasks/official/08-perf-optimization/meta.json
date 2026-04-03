@@ -1,0 +1,10 @@
+{
+  "id": "08-perf-optimization",
+  "name": "Performance Optimization",
+  "difficulty": "hard",
+  "category": "optimization",
+  "language": "typescript",
+  "timeoutSeconds": 300,
+  "expectedTokenRange": [8000, 40000],
+  "tags": ["performance", "optimization", "search"]
+}

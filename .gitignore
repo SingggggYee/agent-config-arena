@@ -1,0 +1,10 @@
+node_modules/
+dist/
+results/*.json
+results/**/
+!results/.gitkeep
+!results/README.md
+*.tgz
+.DS_Store
+tasks/**/scaffold/package-lock.json
+tasks/**/scaffold/node_modules/

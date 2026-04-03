@@ -1,0 +1,10 @@
+{
+  "id": "04-cli-tool",
+  "name": "CLI Argument Parser",
+  "difficulty": "medium",
+  "category": "greenfield",
+  "language": "typescript",
+  "timeoutSeconds": 180,
+  "expectedTokenRange": [8000, 35000],
+  "tags": ["cli", "parser", "jmespath"]
+}

@@ -1,0 +1,10 @@
+{
+  "id": "05-data-transform",
+  "name": "Data Pipeline Transform",
+  "difficulty": "medium",
+  "category": "data",
+  "language": "typescript",
+  "timeoutSeconds": 180,
+  "expectedTokenRange": [6000, 28000],
+  "tags": ["csv", "data-pipeline", "transform"]
+}

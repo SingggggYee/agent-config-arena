@@ -1,0 +1,10 @@
+{
+  "id": "07-type-migration",
+  "name": "JS to TypeScript Migration",
+  "difficulty": "hard",
+  "category": "migration",
+  "language": "typescript",
+  "timeoutSeconds": 300,
+  "expectedTokenRange": [10000, 50000],
+  "tags": ["typescript", "migration", "types"]
+}

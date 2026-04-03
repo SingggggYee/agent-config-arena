@@ -1,0 +1,10 @@
+{
+  "id": "03-bug-fix-async",
+  "name": "Fix Async Race Condition",
+  "difficulty": "medium",
+  "category": "debugging",
+  "language": "typescript",
+  "timeoutSeconds": 180,
+  "expectedTokenRange": [6000, 30000],
+  "tags": ["async", "race-condition", "concurrency"]
+}

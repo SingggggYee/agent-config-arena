@@ -1,0 +1,10 @@
+{
+  "id": "02-refactor-extract",
+  "name": "Extract & Refactor Module",
+  "difficulty": "easy",
+  "category": "refactoring",
+  "language": "typescript",
+  "timeoutSeconds": 120,
+  "expectedTokenRange": [4000, 20000],
+  "tags": ["refactor", "modules", "imports"]
+}

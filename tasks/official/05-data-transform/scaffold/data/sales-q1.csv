@@ -1,0 +1,6 @@
+transaction_id,date,amount,currency,product
+TXN001,2024-01-15,100.00,USD,Widget A
+TXN002,01/20/2024,250.00,EUR,Widget B
+TXN003,2024-02-01,75.50,,Widget A
+TXN001,2024-01-16,100.00,USD,Widget A
+TXN004,Feb 10 2024,300.00,GBP,Widget C

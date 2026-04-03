@@ -1,0 +1,10 @@
+{
+  "id": "01-rest-api",
+  "name": "REST API PATCH Endpoint",
+  "difficulty": "easy",
+  "category": "backend",
+  "language": "typescript",
+  "timeoutSeconds": 120,
+  "expectedTokenRange": [5000, 25000],
+  "tags": ["express", "rest", "validation"]
+}

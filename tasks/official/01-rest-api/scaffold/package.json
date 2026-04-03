@@ -1,0 +1,11 @@
+{
+  "name": "rest-api-task",
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "test": "node --test test/*.test.js"
+  },
+  "dependencies": {
+    "express": "^4.21.0"
+  }
+}
