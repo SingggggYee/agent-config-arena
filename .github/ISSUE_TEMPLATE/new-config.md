@@ -15,7 +15,7 @@ labels: config-submission
 
 ## Benchmark Results
 
-<!-- Paste the output of: npx agent-config-arena run --config your-config.md -->
+<!-- Paste the output of: node dist/index.js run --config your-config.md -->
 
 ## Config File
 

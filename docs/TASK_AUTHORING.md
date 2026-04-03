@@ -64,7 +64,7 @@ npx vitest run
 ## Validation
 
 ```bash
-npx agent-config-arena validate-task tasks/community/your-task/
+node dist/index.js validate-task tasks/community/your-task/
 ```
 
 This checks for required files, valid meta.json, and scaffold existence.

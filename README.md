@@ -37,20 +37,25 @@ A neutral, open-source benchmark that tests different coding agent configuration
 ## Quick Start
 
 ```bash
+git clone https://github.com/SingggggYee/agent-config-arena.git
+cd agent-config-arena
+pnpm install && pnpm build
+
 # Compare all official configs on all tasks
-npx agent-config-arena compare --configs configs/official --runner claude
+node dist/index.js compare --configs configs/official --runner claude
 
 # Or benchmark your own config
-npx agent-config-arena run --config your-config.md --runner claude
+node dist/index.js run --config your-config.md --runner claude
 
 # Generate leaderboard
-npx agent-config-arena leaderboard
+node dist/index.js leaderboard
 ```
 
 ## Add Your Own Config
 
-1. Create `configs/community/your-config.md`
-2. Run: `npx agent-config-arena run --config configs/community/your-config.md`
+1. Fork this repo
+2. Create `configs/community/your-config.md`
+2. Run: `node dist/index.js run --config configs/community/your-config.md`
 3. Submit a PR with your config + results
 
 Can your CLAUDE.md beat the leaderboard? [Find out.](CONTRIBUTING.md)
@@ -102,7 +107,7 @@ Three official configs ship with the arena:
    description: One-line description
    ---
    ```
-2. Run: `npx agent-config-arena run --config configs/community/your-config.md`
+2. Run: `node dist/index.js run --config configs/community/your-config.md`
 3. Submit a PR with your config + results
 
 ## Add Your Own Task
@@ -112,7 +117,7 @@ Three official configs ship with the arena:
    - `prompt.md` -- natural language instructions for the agent
    - `scaffold/` -- starter code the agent works in
    - `test.sh` -- verification script (exit 0 = pass)
-2. Validate: `npx agent-config-arena validate-task tasks/community/your-task/`
+2. Validate: `node dist/index.js validate-task tasks/community/your-task/`
 3. Submit a PR
 
 See [docs/TASK_AUTHORING.md](docs/TASK_AUTHORING.md) for the full spec.

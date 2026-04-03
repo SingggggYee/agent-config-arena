@@ -58,7 +58,7 @@ I built an open-source tool that benchmarks different CLAUDE.md configurations a
 ## Try it yourself
 
 ```
-npx agent-config-arena compare --configs configs/official --runner claude
+node dist/index.js compare --configs configs/official --runner claude
 ```
 
 Or add your own config and submit a PR.
