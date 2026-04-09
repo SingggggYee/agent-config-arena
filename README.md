@@ -168,6 +168,21 @@ v1 supports Claude Code and Codex CLI. The runner adapter interface is designed 
 **How do I know the benchmark is fair?**
 Isolated sandboxes, deterministic test suites, median of 3 runs, all raw results published as JSON. The methodology is documented and the code is open source.
 
+**How do I benchmark my CLAUDE.md config?**
+Run `node dist/index.js run --config your-config.md --runner claude` to test your config against all 8 tasks. Results are saved as JSON and you can generate a leaderboard comparison with `node dist/index.js leaderboard`.
+
+**What coding tasks does Agent Config Arena test?**
+v1 includes 8 real-world tasks: REST API endpoint, module refactoring, async bug fix, CLI tool, data pipeline, test coverage, TypeScript migration, and performance optimization. Each task has automated verification — no subjective grading.
+
+**Does Agent Config Arena work with Cursor or Copilot?**
+v1 supports Claude Code and Codex CLI. Cursor, Copilot, Windsurf, and other tools are not yet supported, but the runner adapter interface is designed for extension. Community adapters are welcome — see [CONTRIBUTING.md](CONTRIBUTING.md).
+
+**What's the best CLAUDE.md configuration?**
+There's no single "best" config — it depends on what you optimize for. In our tests, the token-efficient config was fastest and cheapest, but baseline (no config) used the fewest tokens. Run the benchmark on your own config to see how it compares.
+
+**How do I submit my config to the leaderboard?**
+Fork the repo, add your config to `configs/community/your-config.md`, run the benchmark, and submit a PR with your config and results. See [CONTRIBUTING.md](CONTRIBUTING.md) for full submission guidelines.
+
 ## CLI Reference
 
 ```
